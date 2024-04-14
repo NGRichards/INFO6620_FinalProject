@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+  <title>Reference Checker</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='DAL_icon.png') }}"
+  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="text-center mainbody-1">
+      <img src="{{ url_for('static', filename='DAL_logo.png') }}" class="icon" />
+    </div>
+  </div>
+
+  <h2>Reference Checker</h2>
+     <p>This web application is designed to give you feedback about your references. Provide your list of referenes in either APA, MLA, or Chicago style format. This application will generate feedback to improve your references based on the chosen style guide and save your input for future improvement.</p>
+  <form action="/" method="post">
+    <label for="name">Student Name:</label><br>
+    <input type="text" id="name" name="name" placeholder="Student name"><br>
+
+    <label for="email">Student Email:</label><br>
+    <input type="text" id="email" name="email" placeholder="Student's email"><br>
+
+    <label for="style">Reference style:</label><br>
+    <select id="style" name="style">
+      <option value="APA">APA</option>
+      <option value="MLA">MLA</option>
+      <option value="Chicago">Chicago</option>
+    </select>
+
+    <label for="references">References:</label><br>
+    <textarea name="references" placeholder="Provide your references here. Please ensure correct formatting." required /></textarea>
+    <input type="submit" value="Submit" />
+
+  </form>
+
+  <h2>Feedback:</h2>
+  {% if result %}
+  <div class="result">{{ result }}</div>
+  {% else %}
+  <p>Feedback will be provided here.</p>
+  {% endif %}
+
+
+  <h2 style="color: #084887;">Further Help and Resources</h2>
+
+  <div class="container">
+    <div class="row mainbody-2">
+      <div class="col-12 text-center">
+        <h3>APA Style</h3>
+      </div>
+    </div>
+  </div>  
+
+  <div class="container">
+    <div class="row mainbody-2">
+      <div class="col-4 text-center">
+        <a href="https://cdn.dal.ca/content/dam/dalhousie/pdf/library/Style_Guides/apa_style7.pdf">Dalhousie APA Quick Guide</a>
+      </div>
+      <div class="col-4 text-center">
+        <a href="https://www.youtube.com/watch?v=8nsm9a5fXwY">Video Tutorial</a>
+      </div>
+      <div class="col-4 text-center">
+        <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/index.html">OWL Purdue APA Guide</a>
+      </div>
+    </div>
+  </div>
+
+ <div class="container">
+    <div class="row mainbody-3">
+      <div class="col-12 text-center">
+        <h3>MLA Style</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mainbody-3">
+      <div class="col-4 text-center">
+        <a href="https://cdn.dal.ca/content/dam/dalhousie/pdf/library/Style_Guides/MLA9_QuickGuide-2021.pdf">Dalhousie MLA Quick Guide</a>
+      </div>
+      <div class="col-4 text-center">
+        <a href="https://www.youtube.com/playlist?list=PLJte6w3fUL6u49bZBmJGKugDLaPLJxmdk">Video Tutorials</a>
+      </div>
+      <div class="col-4 text-center">
+        <a href="https://owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/index.html">OWL Purdue MLA Guide</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mainbody-2">
+      <div class="col-12 text-center">
+        <h3>Chicago Style</h3>
+      </div>
+    </div>
+  </div>  
+
+  <div class="container">
+    <div class="row mainbody-2">
+      <div class="col-4 text-center">
+        <a href="https://www-chicagomanualofstyle-org.ezproxy.library.dal.ca/tools_citationguide.html">Chicago Quick Guide</a>
+      </div>
+      <div class="col-4 text-center">
+        <a href="https://www.youtube.com/playlist?list=PLJte6w3fUL6uJOOZDxUSwwHtVPk49GU-l">Video Tutorials</a>
+      </div>
+      <div class="col-4 text-center">
+        <a href="https://owl.purdue.edu/owl/research_and_citation/chicago_manual_17th_edition/cmos_formatting_and_style_guide/chicago_manual_of_style_17th_edition.html">OWL Purdue Chicago Guide</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mainbody-3">
+      <div class="col-12 text-center">
+        <h3>For additional help visit the Dalhousie Library Guide, or see a Dalhousie librarian for reference assistance.</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mainbody-3">
+      <div class="col-6 text-center">
+        <a href="https://libraries.dal.ca/help/style-guides.html">Dalhousie Style Guide</a>
+      </div>
+      <div class="col-6 text-center">
+        <a href="https://libraries.dal.ca/services/reference-research-services.html">Reference and Research Assistance</a>
+      </div>
+    </div>
+  </div>
+
+</body>
